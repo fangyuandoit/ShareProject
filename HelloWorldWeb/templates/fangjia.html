@@ -1,0 +1,95 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {#    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>#}
+    {#    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>#}
+
+    <script src="{% static "js/echarts-all-3.js" %}"></script>
+    <script src="{% static "js/vue.min.js" %}"></script>
+    <script src="{% static "js/axios.min.js" %}"></script>
+
+</head>
+<body>
+
+<div id="vue">
+    <div id="chartmain" style="width:100%;overflow: auto; height: 400px;"></div>
+
+    走势图 <input type="button" value="爬取今日二手房" @click="getTodayHouseInfo">
+
+
+</div>
+
+
+<script type="text/javascript">
+
+
+    option = {
+        xAxis: {
+            type: 'category',
+            data: []
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [],
+            type: 'line'
+        }]
+    };
+
+    let vueObject = new Vue({
+        el: '#vue',
+        data: {
+            fangJia: [],
+            dataOfTime: [],
+            dataOfHouse: [],
+        },
+        mounted: function () {
+            this.findAllFangjiaInfo();
+        },
+        methods: {
+
+            /**
+             *  爬取今日二手房
+             */
+            getTodayHouseInfo: function () {
+                axios.get('/house/getTodayHouseInfo')
+                    .then(response => {
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            },
+            /**
+             * 加载房价折线图信息
+             */
+            findAllFangjiaInfo: function () {
+                axios.get('/house/findAllFangjiaInfo')
+                    .then(response => {
+                        let data = response.data;
+                        for (index  in data) {
+                            let selling_house_number = data[index].fields.selling_house_number;
+                            let create_time = data[index].fields.create_time;
+                            vueObject.dataOfTime.push(create_time);
+                            vueObject.dataOfHouse.push(selling_house_number);
+                        }
+                        option.xAxis.data = vueObject.dataOfTime;
+                        option.series[0].data = vueObject.dataOfHouse;
+                        //初始化echarts实例
+                        var myChart = echarts.init(document.getElementById('chartmain'));
+                        //使用制定的配置项和数据显示图表
+                        myChart.setOption(option);
+                    })
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            },
+        }
+    })
+
+
+</script>
+</body>
+</html>
