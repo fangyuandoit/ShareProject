@@ -59,7 +59,7 @@ public class MyApplicationRunner implements ApplicationRunner {
         }
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
-        message.setTo("676176407@qq.com");
+        message.setTo("xxxx@qq.com");
         message.setSubject("百度热搜");
         message.setText(content.toString());
         jms.send(message);

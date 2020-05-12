@@ -40,6 +40,5 @@ public class WeiboServiceImpl implements WeiboService {
             result.add(element.text());
         }
         return result;
-
     }
 }
