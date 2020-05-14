@@ -1,0 +1,9 @@
+D:\gitProject\ShareProject\changeBackgroundPhoto\changeBackgroundPhoto\bin\Debug\changeBackgroundPhoto.exe.config
+D:\gitProject\ShareProject\changeBackgroundPhoto\changeBackgroundPhoto\bin\Debug\changeBackgroundPhoto.exe
+D:\gitProject\ShareProject\changeBackgroundPhoto\changeBackgroundPhoto\bin\Debug\changeBackgroundPhoto.pdb
+D:\gitProject\ShareProject\changeBackgroundPhoto\changeBackgroundPhoto\obj\Debug\changeBackgroundPhoto.csprojResolveAssemblyReference.cache
+D:\gitProject\ShareProject\changeBackgroundPhoto\changeBackgroundPhoto\obj\Debug\changeBackgroundPhoto.Form1.resources
+D:\gitProject\ShareProject\changeBackgroundPhoto\changeBackgroundPhoto\obj\Debug\changeBackgroundPhoto.Properties.Resources.resources
+D:\gitProject\ShareProject\changeBackgroundPhoto\changeBackgroundPhoto\obj\Debug\changeBackgroundPhoto.csproj.GenerateResource.Cache
+D:\gitProject\ShareProject\changeBackgroundPhoto\changeBackgroundPhoto\obj\Debug\changeBackgroundPhoto.exe
+D:\gitProject\ShareProject\changeBackgroundPhoto\changeBackgroundPhoto\obj\Debug\changeBackgroundPhoto.pdb
